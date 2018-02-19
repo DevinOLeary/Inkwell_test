@@ -1,0 +1,16 @@
+$white: rgb(255,255,255);
+$grey: rgb(74,74,74);
+$clear: rgba(0,0,0,0);
+$orange: #F89D35;
+$purple: #EFA0F2;
+$yellow: #E2EF58;
+
+
+$default: $grey;
+$inverse: $white;
+$gradient: linear-gradient(90deg, $purple 0%, $orange 100%);
+$button-gradient: $gradient;
+
+$header-font: 'Yesteryear';
+$body-font: 'Josefin sans';
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400|Yesteryear');
