@@ -51,6 +51,8 @@ class MenuBlock extends React.Component {
       justifyContent: "flex-start",
       background: `url(${Texture})`
     }
+
+
     const subheaderStyle = {
       marginTop: '-20px'
     }
@@ -62,11 +64,17 @@ class MenuBlock extends React.Component {
     });
     const activeImage = this.state.activeMenuItem !== "" ? activeItem[0].itemImage.file.url : drinkImage;
     const activeTab = this.state.activeTab;
-
+    const menuImage = {
+      backgroundImage: `url(${activeImage})`,
+      backgroundPosition: 'center',
+      backgroundSize: 'cover',
+      height: '100%',
+      width: '40%'
+    }
     return(
       <div className="container center row full-width">
         <MediaQuery minWidth={700}>
-          <MenuImage activeImage={activeImage}/>
+          <section style={menuImage}/>
         </MediaQuery>
         <section className="container center column" style={menuContainer} >
           <div className="container column center">
