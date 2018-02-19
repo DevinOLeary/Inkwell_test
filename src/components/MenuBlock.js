@@ -75,19 +75,32 @@ class MenuBlock extends React.Component {
       <div className="container center row full-width">
         <MediaQuery minWidth={700}>
           <section style={menuImage}/>
+          <section className="container center column" style={menuContainer} >
+            <div className="container column center">
+              <hgroup className="container center section-header" style={buttonContainer}>
+                <button className="button-flat" onClick={this.clickHandler.bind(this,'drinks')}><h3>drinks</h3></button>
+                <button className="button-flat" onClick={this.clickHandler.bind(this,'food')}><h3>food</h3></button>
+                <hr className={`floating-underline ${activeTab === "food" ? "active-food" : ""}`}/>
+              </hgroup>
+              {activeTab === 'food' && <p style={subheaderStyle}>click item to view</p>}
+            </div>
+            <TransitionGroup className="container center">
+              {
+              this.state.activeTab === 'drinks' ?
+                <MenuType type={'drinks'} menuContent={drinkContent}/>
+                :
+                <MenuType type={'food'} menuContent={foodContent} handleFoodImage={this.handleFoodImage}/>
+              }
+            </TransitionGroup>
+          </section>
         </MediaQuery>
+        <MediaQuery maxWidth={699}>
         <section className="container center column" style={menuContainer} >
           <div className="container column center">
             <hgroup className="container center section-header" style={buttonContainer}>
               <button className="button-flat" onClick={this.clickHandler.bind(this,'drinks')}><h3>drinks</h3></button>
               <button className="button-flat" onClick={this.clickHandler.bind(this,'food')}><h3>food</h3></button>
-              <MediaQuery minWidth={700}>
-                <hr className={`floating-underline ${activeTab === "food" ? "active-food" : ""}`}/>
-              </MediaQuery>
             </hgroup>
-            <MediaQuery minWidth={700}>
-              {activeTab === 'food' && <p style={subheaderStyle}>click item to view</p>}
-            </MediaQuery>
           </div>
           <TransitionGroup className="container center">
             {
@@ -98,6 +111,7 @@ class MenuBlock extends React.Component {
             }
           </TransitionGroup>
         </section>
+        </MediaQuery>
       </div>
     )
   }
