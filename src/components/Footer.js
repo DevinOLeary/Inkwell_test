@@ -1,5 +1,5 @@
 import React from 'react';
-import Media from 'react-media';
+import MediaQuery from 'react-responsive';
 
 import Logo from './Logo';
 import ColoredDivider from './ColoredDivider';
@@ -84,28 +84,26 @@ const Footer = (props) => {
   const logo = inkwellLogo(props.data);
 
   return (
-    <Media query="(min-width: 600px)">
-      {matches =>
-        matches ? (
-          <footer className='container spread row' style={footerContainer}>
-            {phoneAddress}
-              <br/>
-            {logo}
-              <br/>
-            {storeHours}
-          </footer>
-        )
-        : (
-          <footer className='container spread column' style={footerContainer}>
-            {logo}
-              <br/>
-            {storeHours}
-              <br/>
-            {phoneAddress}
-          </footer>
-        )
-      }
-    </Media>
+    <div>
+      <MediaQuery minWidth={600}>
+        <footer className='container spread row' style={footerContainer}>
+          {phoneAddress}
+            <br/>
+          {logo}
+            <br/>
+          {storeHours}
+        </footer>
+      </MediaQuery>
+      <MediaQuery maxWidth={599}>
+        <footer className='container spread column' style={footerContainer}>
+          {logo}
+            <br/>
+          {storeHours}
+            <br/>
+          {phoneAddress}
+        </footer>
+      </MediaQuery>
+    </div>
   )
 };
 

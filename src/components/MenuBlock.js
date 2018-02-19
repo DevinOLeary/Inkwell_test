@@ -73,17 +73,13 @@ class MenuBlock extends React.Component {
             <hgroup className="container center section-header" style={buttonContainer}>
               <button className="button-flat" onClick={this.clickHandler.bind(this,'drinks')}><h3>drinks</h3></button>
               <button className="button-flat" onClick={this.clickHandler.bind(this,'food')}><h3>food</h3></button>
-              <Media query="(min-width: 600px)">
-                {matches =>
-                  matches ? <hr className={`floating-underline ${activeTab === "food" ? "active-food" : ""}`}/> : <div/>
-              }
-              </Media>
+              <MediaQuery minWidth={700}>
+                <hr className={`floating-underline ${activeTab === "food" ? "active-food" : ""}`}/>
+              </MediaQuery>
             </hgroup>
-            <Media query="(min-width: 600px)">
-              {matches =>
-                matches && activeTab === 'food' ? <p style={subheaderStyle}>click item to view</p> : <div/>
-            }
-            </Media>
+            <MediaQuery minWidth={700}>
+              {activeTab === 'food' && <p style={subheaderStyle}>click item to view</p>}
+            </MediaQuery>
           </div>
           <TransitionGroup className="container center">
             {

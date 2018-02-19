@@ -1,5 +1,5 @@
 import React from 'react';
-import Media from 'react-media';
+import MediaQuery from 'react-responsive';
 import {Link} from 'react-scroll';
 import {Link as GatsbyLink} from 'gatsby-link';
 
@@ -47,26 +47,23 @@ const DesktopHeader = (props) => (
         </div>)
       :
       (
-        <Media query="(min-width: 850px)">
-          {matches =>
-            matches ? (
-              <div>
-                <div className="container row spread">
-                  <Logo style={logoDesktop}/>
-                  <NavItems/>
-                </div>
-                <h3 style={titleText}>{props.data.site.siteMetadata.title}</h3>
-              </div>
-            )
-            :
-            (
-              <div className="container row">
-                <Logo style={logoMobile}/>
+        <div>
+          <MediaQuery minWidth={850}>
+            <div>
+              <div className="container row spread">
+                <Logo style={logoDesktop}/>
                 <NavItems/>
               </div>
-            )
-          }
-        </Media>
+              <h3 style={titleText}>{props.data.site.siteMetadata.title}</h3>
+            </div>
+          </MediaQuery>
+          <MediaQuery maxWidth={849}>
+            <div className="container row">
+              <Logo style={logoMobile}/>
+              <NavItems/>
+            </div>
+          </MediaQuery>
+        </div>
       )
     }
   </header>
