@@ -9,7 +9,7 @@ import Mail from '../assets/mail.png';
 import Location from '../assets/location-emblem.png';
 import Phone from '../assets/phone-emblem.png';
 
-import StoreHours from './StoreHours';
+import Attributions from './FooterAttributions';
 
 const socialLinks = {
   height: "5vw",
@@ -38,6 +38,10 @@ const hoursHeader = {
   margin: '0px'
 }
 
+const attributionsStyle = {
+  marginLeft: "auto"
+}
+
 
 const phoneAddress = (
   <div className="text-center" style={footerItemWidth}>
@@ -56,12 +60,14 @@ const phoneAddress = (
 
 const storeHours = (
   <div className="text-center" style={footerItemWidth}>
+    <div>
     <h3 style={hoursHeader}>Hours</h3>
     <h4>Monday-Friday</h4>
     <h4>7:30AM-4:00PM</h4>
     <br/>
     <h4>Saturday & Sunday</h4>
     <h4>8:00AM-4:00PM</h4>
+    </div>
   </div>
 );
 
@@ -92,6 +98,7 @@ const Footer = (props) => {
           {logo}
             <br/>
           {storeHours}
+          <Attributions style={attributionsStyle}/>
         </footer>
       </MediaQuery>
       <MediaQuery maxWidth={599}>
@@ -101,6 +108,7 @@ const Footer = (props) => {
           {storeHours}
             <br/>
           {phoneAddress}
+          <Attributions />
         </footer>
       </MediaQuery>
     </div>
